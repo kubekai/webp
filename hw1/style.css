@@ -1,0 +1,44 @@
+
+@media (min-width:540px) {
+    .ho {
+        color: red;
+        font-size: 260%;
+        text-align: center;
+    }
+    .center{
+        text-align:center;
+        font-size: 260%;
+        color:purple;
+    }
+    .hoo{
+        width: auto;
+    }
+}
+@media (min-width:1080px) {
+    .ho {
+        color: rgb(43, 255, 0);
+        font-size: 360%;
+        text-align: center;
+    }
+    .center{
+        text-align:center;
+        font-size: 260%;
+        color:rgb(0, 128, 58);
+    }
+    .hoo{
+        width: auto;
+    }
+}
+.size{
+    font-size: 30px;
+}
+h1{
+    background-color: cornflowerblue;
+}
+p:hover{
+    background-color: darkcyan;
+    font-size: 25px;
+}
+li:hover{
+    background-color: yellow;
+}
