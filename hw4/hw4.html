@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <title>My Document</title> 
+  <style>
+  .line{
+      border-left: thick solid rgba(0, 0, 0, 0.411);
+      height:100%;
+      left: 960px;
+      position: absolute;
+}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript"> 
+  //三種分別是控制generete,move,delete
+  var i1=0,g1=1,k1=1;
+  var i2=0,g2=1,k2=1;
+  var i3=0,g3=1,k3=1;
+  var i4=0,g4=1,k4=1;
+  var i5=0,g5=1,k5=1;
+  var i6=0,g6=1,k6=1;
+  var char=[];//紀錄字圖網址
+  char[1]="1.jpeg";
+  char[2]="2.jpeg";
+  char[3]="3.jpeg";
+  char[4]="4.jpeg";
+  char[5]="5.jpeg";
+  char[6]="6.jpeg";
+  char[7]="7.jpeg";
+  char[8]="8.jpeg";
+  char[9]="9.jpeg";  
+  char[10]="10.jpeg";
+  char[11]="11.jpeg";
+  char[12]="12.jpeg";
+  char[13]="13.jpeg";
+  char[14]="14.jpeg";
+  char[15]="15.jpeg";
+  char[16]="16.jpeg";
+  char[17]="17.jpeg";
+  char[18]="18.jpeg";
+  char[19]="19.jpeg";
+  char[20]="20.jpeg";
+  char[21]="21.jpeg";
+  char[22]="22.jpeg";
+  char[23]="23.jpeg";
+  char[24]="24.jpeg";
+  char[25]="25.jpeg";
+  char[26]="26.jpeg";
+  var str1="",str2="",str3="",str4="",str5="",str6="";//紀錄出現的字
+  function animationcomplete()//當有字圖到達時清空畫面結束
+  {
+    $("*").empty();
+  }
+  function move_1()
+  {
+    $("#word_1"+g1).animate({
+        left:'960px'
+    },9000,'linear',animationcomplete)
+    g1++;
+  }
+  function move_2()
+  {
+    $("#word_2"+g2).animate({
+        left:'960px'
+    },9000,'linear',animationcomplete)
+    g2++;
+  }
+  function move_3()
+  {
+    $("#word_3"+g3).animate({
+        left:'960px'
+    },9000,'linear',animationcomplete)
+    g3++;
+  }
+  function move_4()
+  {
+    $("#word_4"+g4).animate({
+        left:'960px'
+    },9000,'linear',animationcomplete)
+    g4++;
+  }
+  function move_5()
+  {
+    $("#word_5"+g5).animate({
+        left:'960px'
+    },9000,'linear',animationcomplete)
+    g5++;
+  }
+  function move_6()
+  {
+    $("#word_6"+g6).animate({
+        left:'960px'
+    },9000,'linear',animationcomplete)
+    g6++;
+  }
+  function generate()
+  {
+    var num1 = Math.floor(Math.random() * 26 + 1);
+    i1++;
+    //一直生產新的div物件放置圖片
+    $("#an1").prepend("<div id='word_1" + i1 +"' style='position:absolute;'><img src='images/"+char[num1]+"' width='60'></div>");
+    str1=String.fromCharCode(num1+64)+str1;
+    move_1();
+  }
+  function generate_2()
+  {
+    var num2 = Math.floor(Math.random() * 26 + 1);
+    i2++;
+    $("#an2").prepend("<div id='word_2" + i2 +"' style='position:absolute;'><img src='images/"+char[num2]+"' width='60'></div>");
+    str2=String.fromCharCode(num2+64)+str2;
+    move_2();
+  }
+  function generate_3()
+  {
+    var num3 = Math.floor(Math.random() * 26 + 1);
+    i3++;
+    $("#an3").prepend("<div id='word_3" + i3 +"' style='position:absolute;'><img src='images/"+char[num3]+"' width='60'></div>");
+    str3=String.fromCharCode(num3+64)+str3;
+    move_3();
+  }
+  function generate_4()
+  {
+    var num4 = Math.floor(Math.random() * 26 + 1);
+    i4++;
+    $("#an4").prepend("<div id='word_4" + i4 +"' style='position:absolute;'><img src='images/"+char[num4]+"' width='60'></div>");
+    str4=String.fromCharCode(num4+64)+str4;
+    move_4();
+  }
+  function generate_5()
+  {
+    var num5 = Math.floor(Math.random() * 26 + 1);
+    i5++;
+    $("#an5").prepend("<div id='word_5" + i5 +"' style='position:absolute;'><img src='images/"+char[num5]+"' width='60'></div>");
+    str5=String.fromCharCode(num5+64)+str5;
+    move_5();
+  }
+  function generate_6()
+  {
+    var num6 = Math.floor(Math.random() * 26 + 1);
+    i6++;
+    $("#an6").prepend("<div id='word_6" + i6 +"' style='position:absolute;'><img src='images/"+char[num6]+"' width='60'></div>");
+    str6=String.fromCharCode(num6+64)+str6;
+    move_6();
+  }
+  $(document).ready(function() 
+  { 
+    $("#btn1").click(function()
+    {
+      
+      setInterval(generate,1900);
+      setInterval(generate_2,6000);
+      setInterval(generate_3,2500);
+      setInterval(generate_4,4700);
+      setInterval(generate_5,5000);
+      setInterval(generate_2,4300);
+    });
+  } );
+  $(document).ready(function() 
+  { 
+    $("*").keydown(function(e)
+    {
+      if(e.key==str1.substr(-1))
+      {
+        $("#word_1"+k1).stop();//先暫停動畫
+        $("#word_1"+k1).remove()//再將物件移除
+        k1++;
+        str1=str1.substr(0,str1.length-1);
+      }
+      if(e.key==str2.substr(-1))
+      {
+        $("#word_2"+k2).stop();
+        $("#word_2"+k2).remove();
+        k2++;
+        str2=str2.substr(0,str2.length-1);
+      }
+      if(e.key==str3.substr(-1))
+      {
+        $("#word_3"+k3).stop();
+        $("#word_3"+k3).remove();
+        k3++;
+        str3=str3.substr(0,str3.length-1);
+      }
+      if(e.key==str4.substr(-1))
+      {
+        $("#word_4"+k4).stop();
+        $("#word_4"+k4).remove();
+        k4++;
+        str4=str4.substr(0,str4.length-1);
+      }
+      if(e.key==str5.substr(-1))
+      {
+        $("#word_5"+k5).stop();
+        $("#word_5"+k5).remove();
+        k5++;
+        str5=str5.substr(0,str5.length-1);
+      }
+      if(e.key==str6.substr(-1))
+      {
+        $("#word_6"+k6).stop();
+        $("#word_6"+k6).remove();
+        k6++;
+        str6=str6.substr(0,str6.length-1);
+      }   
+    });
+  } );
+</script> 
+</head> 
+<body> 
+<button id="btn1">START</button>
+<div class="line"></div>
+</br>
+</br>
+</br>
+</br>
+<div id="an1" style="position:absolute;"></div>
+</br>
+</br>
+</br>
+</br>
+<div id="an2" style="position:absolute;"></div>
+</br>
+</br>
+</br>
+</br>
+<div id="an3" style="position:absolute;"></div>
+</br>
+</br>
+</br>
+</br>
+<div id="an4" style="position:absolute;"></div>
+</br>
+</br>
+</br>
+</br>
+<div id="an5" style="position:absolute;"></div>
+</br>
+</br>
+</br>
+</br>
+<div id="an6" style="position:absolute;"></div>
+</br>
+</br>
+</br>
+</br>
+</body> 
+</head> 
+</html>
