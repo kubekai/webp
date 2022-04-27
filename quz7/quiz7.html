@@ -1,0 +1,24 @@
+
+   
+<html> 
+<head> 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script> 
+    var dataUrl = "https://cors-anywhere.herokuapp.com/https://wic.heo.taipei/OpenData/API/Rain/Get?stationNo=&loginId=open_rain&dataKey=85452C1D"; 
+    var data = $.getJSON(dataUrl); 
+    data.done( function( msg ) {     
+      //console.log(msg);
+      $("h2").html(msg.data[0].stationName+"("+msg.data[0].stationNo+")");
+      //console.log(msg.data[0].rain);
+      $("#demo_1").html("更新時間："+msg.data[0].recTime);
+      $("#demo_2").html("目前雨量："+msg.data[0].rain); 
+  });
+  </script> 
+</head> 
+<body> 
+  <h1>臺北市即時雨量資料</h1> 
+  <h2></h2>
+  <h3 id="demo_1"></h3>
+  <h3 id="demo_2"></h3>
+</body> 
+</html>
