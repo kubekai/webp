@@ -1,0 +1,16 @@
+<html !DOCTYPE>
+<h1 id='demo'></h1>
+ <body>
+ <script>
+setInterval(myfunction,1000);
+function myfunction()
+{
+ var times=new Date();
+ var hour=times.getHours();
+ var min=times.getMinutes();
+ var second=times.getSeconds();
+document.getElementById("demo").innerHTML=hour+':'+min+':'+second;
+}
+ </script>
+ </body>
+ </html>
